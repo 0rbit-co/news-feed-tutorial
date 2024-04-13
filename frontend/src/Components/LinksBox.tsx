@@ -6,7 +6,7 @@ const LinksBox = () => {
     shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]"
     >
       <h4 className="text-[13.5px] font-[Medium] pb-[9px]">Useful Links</h4>
-      <div className="grid grid-cols-2 gap-6 text-start tet-[12px] font-[Medium]">
+      <div className="grid grid-cols-2 sm:gap-6 gap-3 text-start tet-[12px] font-[Medium]">
         <a
           href=""
           target="_blank"

@@ -2,8 +2,11 @@ import NewsCard from "./NewsCard";
 
 const NewsDisplay = () => {
   return (
-    <section className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[#f1f1f1] max-w-[75%] rounded-[12px] px-[18px] py-[15px] flex flex-col items-center justify-center gap-4">
-      <div className="grid grid-cols-2 gap-[9px]">
+    <section
+      className="max-w-[1200px] sm:mx-12 max-h-[50%] overflow-y-scroll
+    shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-[#f1f1f1] rounded-[12px] sm:px-[18px] px-[12px] py-[15px] flex flex-col items-center justify-center gap-4"
+    >
+      <div className="sm:max-h-[390px] max-h-[450px] grid sm:grid-cols-2 gap-[9px] overflow-y-scroll">
         {news.map((item) => {
           return <NewsCard item={item} />;
         })}
@@ -18,6 +21,50 @@ const NewsDisplay = () => {
 export default NewsDisplay;
 
 const news = [
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
+  {
+    heading: "This is my News heading lorem ip...",
+    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
+  },
   {
     heading: "This is my News heading lorem ip...",
     para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
