@@ -1,25 +1,21 @@
-import { Footer, LinksBox, Nav, NewsDisplay } from "./Components";
+import NewsCard from "./NewsCard";
 
-const App = () => {
+const NewsDisplay = () => {
   return (
-    <main
-      className="bg-[#ffffff] flex flex-col gap-12 items-center justify-center
-    font-[Regular]"
-    >
-      <Nav />
-      {/* Heading */}
-      <h1 className="text-[#000000] text-[45px]">
-        Get Latest News with <span className="text-[#F49F38]">0rbit</span> on{" "}
-        <span className="text-[#F49F38]">AO</span>
-      </h1>
-      <NewsDisplay />
-      <LinksBox />
-      <Footer />
-    </main>
+    <section className="bg-[#f1f1f1] max-w-[75%] rounded-[12px] px-[18px] py-[15px] flex flex-col items-center justify-center gap-6">
+      <div className="grid grid-cols-2 gap-6">
+        {news.map((item) => {
+          return <NewsCard item={item} />;
+        })}
+      </div>
+      <button className="bg-[#000000] px-[60px] py-[6px] rounded-[6px] text-[21px] font-extralight text-[#ffffff]">
+        Get Latest News
+      </button>
+    </section>
   );
 };
 
-export default App;
+export default NewsDisplay;
 
 const news = [
   {
