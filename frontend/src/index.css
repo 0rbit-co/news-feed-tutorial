@@ -4,7 +4,7 @@
 
 * {
   box-sizing: border-box;
-  transition: all 0.6s;
+  transition: all 0.3s;
 }
 
 @font-face {
@@ -18,7 +18,11 @@
   src: local("JetBrainsMonoMedium"),
     url("./font/JetBrainsMono-Medium.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "ExtraBold"; /*Can be any text*/
+  src: local("JetBrainsMonoExtraBold"),
+    url("./font/JetBrainsMono-ExtraBold.ttf") format("truetype");
+}
 @font-face {
   font-family: "Light"; /*Can be any text*/
   src: local("JetBrainsMonoLight"),

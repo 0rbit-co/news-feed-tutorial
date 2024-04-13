@@ -3,12 +3,12 @@ import { Footer, LinksBox, Nav, NewsDisplay } from "./Components";
 const App = () => {
   return (
     <main
-      className="bg-[#ffffff] flex flex-col gap-12 items-center justify-center
-    font-[Regular]"
+      className="bg-[#ffffff] flex flex-col gap-[39px] items-center justify-center
+    font-[Regular] pt-[60px]"
     >
       <Nav />
       {/* Heading */}
-      <h1 className="text-[#000000] text-[45px]">
+      <h1 className="text-[#000000] text-[27px] font-[ExtraBold]">
         Get Latest News with <span className="text-[#F49F38]">0rbit</span> on{" "}
         <span className="text-[#F49F38]">AO</span>
       </h1>
