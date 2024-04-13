@@ -20,26 +20,3 @@ const App = () => {
 };
 
 export default App;
-
-const news = [
-  {
-    heading: "This is my News heading lorem ip...",
-    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
-  },
-  {
-    heading: "This is my News heading lorem ip...",
-    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
-  },
-  {
-    heading: "This is my News heading lorem ip...",
-    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
-  },
-  {
-    heading: "This is my News heading lorem ip...",
-    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
-  },
-  {
-    heading: "This is my News heading lorem ip...",
-    para: "This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv This is my News text lorem ipsum dolor sit amet qwer tyuiop asdfhjbfv rvjbrv...",
-  },
-];

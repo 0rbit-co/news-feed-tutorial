@@ -36,6 +36,7 @@ const NewsDisplay = () => {
           })
         )}
       </div>
+
       <button
         onClick={fetchNewsHandler}
         className="bg-[#000000] px-[60px] py-[6px] rounded-[6px] text-[18px] font-extralight text-[#ffffff] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:shadow-none"
