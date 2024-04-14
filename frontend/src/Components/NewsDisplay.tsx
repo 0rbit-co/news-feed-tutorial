@@ -13,7 +13,6 @@ const NewsDisplay = () => {
     try {
       // FETCH HERE
       const news = await getNews();
-      // console.log("TSX news returning:", news, "\nType of:", typeof news);
       if (news == "Error") {
         setMessage("Error Occured. Please Contact Support on Discord");
         setIsLoading(false);
@@ -22,13 +21,6 @@ const NewsDisplay = () => {
         setMessage("Latest News, with 0rbit");
         setNewsArr(news);
       }
-      // news.map((item: any, key: any) => {
-      //   if (key > 5) {
-      //     console.log("TSX map:", item, "\nType of:", typeof item);
-      //     console.log("Key:", key);
-      //   }
-      // });
-      // console.log("data at front", data);
     } catch (error) {
       setMessage("Error Occured. Please Contact Support on Discord");
       console.error();
