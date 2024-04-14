@@ -71,27 +71,3 @@ Handlers.add(
        Handlers.utils.reply(NEWS)(msg)
     end
 )
-
-Handlers.add(
-    "ReceiveNews",
-    Handlers.utils.hasMatchingTag("Action", "Receive-News"),
-    function(msg)
-        for _, news_item in ipairs(NEWS) do
-            local title = news_item.title .. "\n" .. news_item.description
-            Handlers.utils.reply("hi")(msg)
-        end
-    end
-)
-
--- Cron function to update news feed periodically
-Handlers.add(
-    "CronTick",
-    Handlers.utils.hasMatchingTag("Action", "Cron"),
-    function()
-        ao.send({
-            Target = _0RBIT,
-            Action = "Get-Real-Data",
-            Url = BASE_URL
-        })
-    end
-)
