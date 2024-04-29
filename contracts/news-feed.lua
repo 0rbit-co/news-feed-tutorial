@@ -1,84 +1,86 @@
--- Create a news array
--- get handler using _0RBIT
--- receive data feed will push the news to NEWs array
--- cron will regularly fetch data
-
--- fetch news only for one category.
-
 local json = require("json")
 
--- processId of the 0rbit process
+-- processId of the 0rbit process.
 _0RBIT = "WSXUI2JjYUldJ7CKq9wE1MGwXs-ldzlUlHOQszwQe0s"
+_0RBT_TOKEN = "BUhZLMwQ6yZHguLtJYA5lLUa9LQzLXMXRfaq9FVcPJc"
 
--- Base URL for news API
-BASE_URL = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
-
-LOGS = LOGS or {}
+-- Base URL for News API
+URL = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json"
+FEE_AMOUNT = "1000000000000" -- 1 $0RBT
 
 NEWS = NEWS or {}
 
--- Function to get news from API
+--[[
+    Function to send the latest news.
+]]
+function sendNews(msg)
+    local news = json.encode(NEWS)
+    print("News sent", news)
+    Handlers.utils.reply(news)(msg)
+end
+
+--[[
+    Function to fetch the news using the 0rbit.
+]]
+function fetchNews()
+    Send({
+        Target = _0RBT_TOKEN,
+        Action = "Transfer",
+        Recipient = _0RBIT,
+        Quantity = FEE_AMOUNT,
+        ["X-Url"] = URL,
+        ["X-Action"] = "Get-Real-Data"
+    })
+    print(Colors.green .. "GET Request sent to the 0rbit process.")
+end
+
+--[[
+    Function to update the news.
+]]
+function receiveData(msg)
+    local res = json.decode(msg.Data);
+    local articles;
+    local article;
+    if res.status == "ok" then
+        articles = res.articles;
+        for k, v in pairs(articles) do
+            article =
+            {
+                title = v.title,
+                description = v.description,
+                url = v.url
+            }
+            table.insert(NEWS, article)
+        end
+        print("News Updated", json.encode(NEWS))
+    else
+        print("Error in fetching news")
+    end
+end
+
+--[[
+    Handlers to get latest news.
+]]
 Handlers.add(
     "GetNews",
     Handlers.utils.hasMatchingTag("Action", "Get-News"),
-    function()
-        ao.send({
-            Target = _0RBIT,
-            Action = "Get-Real-Data",
-            Url = BASE_URL
-        })
-    end
+    sendNews
 )
 
-Handlers.add(
-    "ReceiveNews",
-    Handlers.utils.hasMatchingTag("Action", "Receive-News"),
-    function(msg)
-        local res = json.decode(msg.Data)
-        if res.status == "ok" then
-            for _, article in ipairs(res.articles) do
-                local news_item = {
-                    title = article.title,
-                    description = article.description,
-                    publishedAt = article.publishedAt
-                }
-                table.insert(NEWS, news_item)
-            end
-        else
-            -- Handle error case
-            table.insert(
-                LOGS,
-                {
-                    From = msg.From,
-                    Tag = "Receive-News",
-                    Data = {
-                        Error = res.message or "Unknown error"
-                    }
-                }
-            )
-
-            if msg.From == ao.id then
-                ao.send({
-                    Target = msg.From,
-                    Tags = {
-                        ["Message-Id"] = msg.Id,
-                        Error = res.message or "Unknown error"
-                    }
-                })
-            end
-        end
-    end
-)
-
--- Cron function to update news feed periodically
+--[[
+    CRON Handler to fetch the news using 0rbit in a defined interval.
+]]
 Handlers.add(
     "CronTick",
     Handlers.utils.hasMatchingTag("Action", "Cron"),
-    function()
-        ao.send({
-            Target = _0RBIT,
-            Action = "Get-Real-Data",
-            Url = BASE_URL
-        })
-    end
+    fetchNews
+)
+
+--[[
+    Handlers to receive data from the 0rbit process.
+]]
+Handlers.add(
+    "ReceiveData",
+    Handlers.utils.hasMatchingTag("Action", "Receive-Data-Feed"),
+    receiveData
 )
